@@ -1,0 +1,59 @@
+*{
+    font-family: 'Tektur', cursive;
+    line-height: 1.5;
+    --Color1 : #9c0707;
+    --Color2 : #293462;
+    --Color3 : #202020;
+    --color4 : #eee; 
+    color: var(--color4);
+    
+}
+html{
+    background: var(--Color1); /* fallback for old browsers */
+    background: linear-gradient(to right, var(--Color3), var(--Color1));
+}
+body{
+    margin: 0 auto;
+}
+h1{
+    font-family: 'Creepster','Tektur', cursive;
+    text-align: center;
+    color: var(--color4);
+}
+
+.login{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: var(--Color3);
+  border-radius: 20px;
+  margin: 5% auto;
+  padding: 40px;
+  width: 350px;
+}
+
+.input{
+    padding: 1rem;
+    border: none;
+    border-radius: 25px;
+    background-color: #151515;
+    box-shadow: inset 2px 5px 15px rgb(7, 7, 7);
+    outline: none;
+}
+
+button{
+    padding: 10px;
+    border-radius: 30px;
+    background-color:#141414 ;
+    border: none;
+    transition: .4s ease-in-out;
+}
+
+button:hover{
+    background-color: #000;
+    color: #eee;
+}
+
+a{
+    color:#0ff
+}

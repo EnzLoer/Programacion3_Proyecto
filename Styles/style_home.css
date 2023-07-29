@@ -1,0 +1,95 @@
+*{
+  font-family: 'Tektur', cursive;
+  line-height: 1.5;
+  --Color1 : #9c0707;
+  --Color2 : #293462;
+  --Color3 : #171717;
+  --color4 : #eee; 
+  margin : 0;
+  text-decoration: none;
+  
+}
+a{text-decoration: none;}
+
+li{list-style: none;}
+
+.nav{
+  position: sticky;
+  top: 0;
+  display: flex;
+  color: var(--color4);
+  background-color: var(--Color3);
+  padding: 0.5rem;
+  z-index: 100 ;
+}
+.nav a{color: var(--color4);
+  font-family: 'Creepster', cursive;
+  font-size: 22px;  
+  text-decoration: none;
+}
+.nav__item {
+  flex: 1 1;
+}
+.menu{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 25px;
+}
+
+.menu a:hover{
+  color: #aaa;
+}
+.menu__li:hover{
+  overflow: unset;
+  border-bottom: #aaa solid 5px;
+}
+.menu a:active{
+  color: #eee;
+}
+.menu__li:active{
+  overflow:unset;
+  border-bottom: #eee solid 5px;
+}
+
+.carousel__container{
+  display: flex;
+  width: 72%;
+  margin: auto;
+  justify-content: space-around;
+}
+.carousel__container img {
+  filter: blur(1.2px);
+}
+
+.blr{
+  background-color: rgba(121, 116, 116, 0.7);
+}
+
+
+.games-container {
+  margin-top: 50px;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 16px;
+}
+.games{
+  display: flex;
+  width: 85%;
+  margin: auto;
+  gap: 16px;
+}
+.game__info{
+  padding: 20px;
+  background-color: red;
+}
+.games .icono{
+  /*flex-grow: 1;*/
+  flex-shrink: 0;
+}
+
+.games .descripcion{
+  flex-grow: 3;
+}

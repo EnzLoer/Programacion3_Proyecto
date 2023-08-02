@@ -1,57 +1,63 @@
 *{
   font-family: 'Tektur', cursive;
   line-height: 1.5;
-  --Color1 : #9c0707;
-  --Color2 : #293462;
-  --Color3 : #171717;
-  --color4 : #eee; 
+  font-size: 20px;
+  --Color1 : #7758b7;
+  --Color2 : #2b2b2b;
+  --Color3 : #cdcdcd;
+  --color4 : #ffffff; 
+  --Color5 : #020202;
   margin : 0;
-  text-decoration: none;
   
 }
-a{text-decoration: none;}
-
+a{text-decoration: none;
+color: var(--Color1);}
+body{
+  background: var(--Color5);
+  background: linear-gradient(225deg, var(--Color5), var(--Color2));
+}
 li{list-style: none;}
 
-.nav{
-  position: sticky;
+nav{
+  position: fixed;
   top: 0;
+  z-index: 100;
   display: flex;
-  color: var(--color4);
-  background-color: var(--Color3);
-  padding: 0.5rem;
-  z-index: 100 ;
+  width: 100%;
+  background-color: var(--Color2);
+  border-bottom: var(--Color1) solid 3px;
+  
 }
-.nav a{color: var(--color4);
-  font-family: 'Creepster', cursive;
-  font-size: 22px;  
-  text-decoration: none;
-}
-.nav__item {
+.item-nav{
   flex: 1 1;
 }
+body{
+  margin-top: 3.5rem;
+}
 .menu{
+  margin-right: 50px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 25px;
+  flex-grow: 1;
+  gap: 2.1rem;
 }
 
+.logoContainer{
+  margin-left: 3rem;
+}
+
+.logoContainer img{
+  height: 4rem ;
+}
+
+.menu__li{
+  text-align: center;
+  
+}
 .menu a:hover{
-  color: #aaa;
+  color: var(--Color3);
 }
-.menu__li:hover{
-  overflow: unset;
-  border-bottom: #aaa solid 5px;
-}
-.menu a:active{
-  color: #eee;
-}
-.menu__li:active{
-  overflow:unset;
-  border-bottom: #eee solid 5px;
-}
-
 .carousel__container{
   display: flex;
   width: 72%;
@@ -63,7 +69,7 @@ li{list-style: none;}
 }
 
 .blr{
-  background-color: rgba(121, 116, 116, 0.7);
+  background-color: #7757b73f;
 }
 
 

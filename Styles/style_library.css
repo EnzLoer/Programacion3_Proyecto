@@ -1,0 +1,55 @@
+*{
+    font-family: 'Tektur', cursive;
+    line-height: 1.5;
+    font-size: 20px;
+    --Color1 : #cf0a0a;
+    --Color2 : #2b2b2b;
+    --Color3 : #cdcdcd;
+    --color4 : #ffffff; 
+    margin : 0;
+    
+  }
+  a{text-decoration: none;
+  color: var(--color4);}
+  
+  li{list-style: none;}
+  
+  nav{
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    width: 100%;
+    background-color: var(--Color1);
+    border-bottom: var(--Color2) solid 3px;
+    
+  }
+  .item-nav{
+    flex: 1 1;
+  }
+  
+  .menu{
+    margin-right: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-grow: 1;
+    gap: 2.1rem;
+  }
+  
+  .logoContainer{
+    margin-left: 3rem;
+  }
+  
+  .logoContainer img{
+    height: 4rem ;
+  }
+  
+  .menu__li{
+    text-align: center;
+    
+  }
+  .menu a:hover{
+    color: var(--Color3);
+  }
+  

@@ -8,22 +8,63 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Tektur&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="../Styles/style_library.css">
+        <link rel="stylesheet" type="text/css" href="../Styles/style_home.css">
+        <script type="text/javascript" src="../JS-code/jquery-3.7.0.min.js"></script>
+        <script type="text/javascript">
+        function cargardatos()
+        {
+            $.post("../Controlador/usuariocontroller.php",{'opcion':'validarsesion'},redirigir);
+        }
+        function cerrarSesion()
+        {
+            $.post("../Controlador/usuariocontroller.php",{'opcion':'cerrarsesion'},redirigir);
+        }
+        function respuesta(arg)
+        {
+            $("#datos tbody").append(arg);
+        }
+        function redirigir(arg)
+        {
+            if(arg==false)
+            { 
+                $(location).attr('href',"login.html");
+            }
+            else{
+                $.post("../Controlador/usuariocontroller.php",{'opcion':'verBiblioteca'},respuesta);
+            }
+        }
+        window.onload=cargardatos;
+
+        </script>
     </head>
     <nav>
         <div class="item-nav logoContainer">
             <a href="Home.html">
-                <img src="../Imagenes/Logo1.png" alt="">
+                <img src="../Imagenes/Logo3.png" alt="">
             </a>
         </div>
         <div class="item-nav menu">
             <a href="Home.html"><li class="menu__li">TIENDA</li></a>
             <a href="Library.html"><li class="menu__li">MI LIBRERIA</li></a>
             <a href="soporte.html"><li class="menu__li">SOPORTE</li></a>
-            <a href=""><li class="menu__li"></li></a>
+            <a><li class="menu__li"><button class="" onclick="cerrarSesion()">Cerrar Sesión</button></li></a>
+            
         </div>
     </nav>
     <body >
+
+        <table class="table table-striped table-dark gap-" id="datos">
+            <thead>
+              <tr>
+                <th scope="col">NOMBRE</th>
+                <th scope="col"></th>
+                <th scope="col">DESCRIPCION</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
 
     </body>
 </html>

@@ -7,6 +7,20 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Tektur&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="../JS-code/jquery-3.7.0.min.js"></script>
+        <script type="text/javascript">
+            function registrar()
+            {
+                $.post("../Controlador/usuariocontroller.php",
+                        $("#datos").serialize(),
+                        respuesta);
+            }
+            function respuesta(arg)
+            {
+                alert(arg);
+            }
+
+        </script>
     </head>
     <body>
         <div class="login">
@@ -15,20 +29,21 @@
                     <img src="../Imagenes/Logo3.png" alt="Logo">
                 </h1>
             </div>
-            <form class="Login__form" value="">
-                <input class="input" type="text" placeholder="usuario">
-                <input class="input" type="email" placeholder="correo">
-                <input class="input" type="password" placeholder="contraseña">
-                <select class="input select_imp">
-                    <option value="1" >Administrador</option>
+            <form class="Login__form" id="datos"value="">
+                <input class="form-control" name="opcion" type="text" value="registrar" hidden>
+                <input class="input" name="usuario" type="text" placeholder="usuario">
+                <input class="input" name="password" type="password" placeholder="contraseña">
+                <select class="input " name="rol_id" select_imp">
+                    <option value="1">Administrador</option>
                     <option value="2">Cliente</option>
                 </select>
+                <input class="input" name="correo" type="email" placeholder="correo">
             </form>
             
             <div>
                 <input class="" type="checkbox"> Acepta los <a href="#">terminos y condiciones </a>
             </div>
-                <button>Registrar</button>
+                <button onclick="registrar()">Registrar</button>
             ¿ya tienes una cuenta?<a href="login.html">inicia sesion aqui</a>
         </div>
         

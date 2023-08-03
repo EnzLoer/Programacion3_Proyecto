@@ -31,6 +31,8 @@ nav{
 .item-nav{
   flex: 1 1;
 }
+
+
 body{
   margin-top: 3.5rem;
 }
@@ -98,4 +100,13 @@ body{
 
 .games .descripcion{
   flex-grow: 3;
+}
+.juegos{
+  background-color: #ffffff;
+
+}
+
+.botones{
+  border-radius: 25%;
+  background-color: #7758b7;
 }

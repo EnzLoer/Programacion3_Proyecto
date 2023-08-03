@@ -1,29 +1,30 @@
 <?php
-require_once("../modelo/usuario.php");
+require_once("../Conexion/usuario.php");
 $usuobj=new usuario;
 switch ($_POST['opcion']) {
 	case 'consulta':
 		$datos=$usuobj->obtenerTodo();
 		$tabla="";
 		foreach ($datos as $fila) {
-			$tabla.="<tr><td>".$fila['codigo']."</td>";
+			$tabla.="<tr><td>".$fila['usuario_id']."</td>";
 			$tabla.="<td>".$fila['usuario']."</td>";
 			$tabla.="<td>".$fila['password']."</td>";
-			$tabla.="<td>".$fila['rol']."</td>";
+			$tabla.="<td>".$fila['rol_id']."</td>";
 			$tabla.="<td>".$fila['correo']."</td>";
 			$tabla.="<td>".$fila['fecha_creacion']."</td></tr>";
 		}
 		echo $tabla;
 		break;
 	case 'registrar':
-		$datos['username']=$_POST['username'];
+		$datos['usuario']=$_POST['usuario'];
 		$datos['password']=$_POST['password'];
-		$datos['rol']=$_POST['rol'];
+		$datos['rol_id']=$_POST['rol_id'];
 		$datos['correo']=$_POST['correo'];
 		$datos['fecha_creacion']=date("Y-m-d"); 
 		echo ($usuobj->registrar($datos));
 		break;
 	case 'login':
+		//var_dump($usuario);
 		$filtro['usuario']=$_POST['usuario'];
 		$filtro['password']=$_POST['password'];
 		$usuario=$usuobj->consultarusuario($filtro);
@@ -53,13 +54,25 @@ switch ($_POST['opcion']) {
 			echo false;
 		}
 		break;
-	case 'verBiblioteca':
-		$datos=$usuobj->verBiblioteca();
+	case 'consultarTienda':
+		$datos=$usuobj->consultarTienda();
 		$tabla="";
 		foreach ($datos as $fila) {
 			$tabla.="<tr><td>".$fila['titulo']."</td>";
 			$imagen = base64_encode($fila['imagen']);
-			$tabla .= '<td><img src="data:image/jpeg;base64,' . $imagen . '" width="100" height="100" /></td>';
+			$tabla .= '<td><a href="consulta"><img src="data:image/jpeg;base64,' . $imagen . '" width="160" height="160" /></a></td>';
+			$tabla.="<td>".$fila['descripcion']."</td>";
+			$tabla.='<td><button type="button" class="btn btn-outline-warning" onclick="filtro" >Comnprar YA</button></td></tr>';
+		}
+		echo $tabla;
+		break;
+	case 'verBiblioteca':
+		$datos=$usuobj->verBiblioteca();
+		$tabla="";
+		foreach ($datos as $fila) {
+			$tabla.=" <tr><td>".$fila['titulo']."</td>";
+			$imagen = base64_encode($fila['imagen']);
+			$tabla .= '<td><img src="data:image/jpeg;base64,' . $imagen . '" width="150" height="150" /></td>';
 			$tabla.="<td>".$fila['descripcion']."</td></tr>";
 		}
 		echo $tabla;
@@ -88,7 +101,7 @@ switch ($_POST['opcion']) {
 		echo ($usuobj->eliminarVideojuego($datos));
 		break;
 	case 'actualizarVideojuego':
-		$datos['id']=$_POST['id'];
+		$datos['videojuego_id ']=$_POST['videojuego_id'];
 		$datos['titulo']=$_POST['titulo'];
 		$datos['descripcion']=$_POST['descripcion'];
 		$datos['imagen'] = file_get_contents($_FILES['imagen']['tmp_name']);

@@ -7,6 +7,28 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Tektur&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="../JS-code/jquery-3.7.0.min.js"></script>
+        <script type="text/javascript">
+            function login()
+            {
+                $.post("../Controlador/usuariocontroller.php",
+				        {"opcion":"login",
+				        "usuario":$("#usuario").val(),
+				        "password":$("#password").val()},
+				        respuesta);
+            }
+            function respuesta(arg)
+            {
+                if(arg==true)
+		        {	
+			        $(location).attr('href',"Home.html");
+		        }
+		        else
+		        {alert(arg);
+		        }
+            }
+
+        </script>
     </head>
     <body>
         <div class="login">
@@ -14,10 +36,10 @@
                 <img src="../Imagenes/Logo3.png" alt="Logo">
             </div>
             <form class="Login__form" value="">
-                <input class="input" type="text" placeholder="usuario">
-                <input class="input" type="password" placeholder="contraseña">
+                <input class="input" id="usuario" type="text" placeholder="usuario">
+                <input class="input" id="password" type="password" placeholder="contraseña">
             </form>
-                <button>LOGIN</button>
+                <button onclick="login()">LOGIN</button>
                 ¿No tienes una cuenta?<a href="registro.html">registrate aqui</a>
             
         </div>
